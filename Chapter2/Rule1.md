@@ -95,7 +95,7 @@ public이나 protected로 선언된 생성자가 없으므로 하위 클래스�
 
  - valueOf : 형변환 메서드. 인자로 주어진 값과 같은 값을 갖는 객체 반환
  - of : valueOf를 더 간단하게 쓴 것.
- - getInstance : 인자에 기술됟 객체를 반환하지만, 인자와 같은 값을 갖지 않을 수 있다.
+ - getInstance : 인자에 기술된 객체를 반환하지만, 인자와 같은 값을 갖지 않을 수 있다.
  - newInstance : getInstance와 같지만 호출할 때마다 다른 객체를 반환한다.
  - getType : getInstance와 같지만, 반환될 객체의 클래스와 다른 클래스에 팩터리 메서드가 있을 때 사용한다.
  - newType : newInstacne와 같지만, 반환될 객체의 클래스와 다른 클래스에 팩터리 메서드가 있을 때 사용한다.
