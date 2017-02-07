@@ -1,5 +1,4 @@
 ## Rule1. 생성자 대신 정적 팩터리 메서드를 사용할 수 없는지 생각해보라.
-
 ### 예시
 ```JAVA
 public static Boolean valueOf(boolean b) {
@@ -28,19 +27,19 @@ public static Boolean valueOf(boolean b) {
   - 세부사항을 감출 수 있으므로 아주 간결한 API가 가능하다.
   - 인터페이스 기반 프레임워크 구현에 적합
   - 서비스 제공자 프레임워크(ex. JDBC)의 근간을 이루는 것이 바로 유연한 정적 팩터리 메서드이다.
-   
+
    ```JAVA
 
    //서비스 인터페이스
    public interface Service {
    		//서비스에 고유한 메서드들이 이 자리에 온다.
    }
-   
+
    //서비스 제공자 인터페이스
    public interface Provider {
    		Service newService();
    }
-   
+
    //서비스 등록과 접근에 사용되는 객체 생성 불가능 클래스
    public class Services {
    		private Services() {} //객체 생성 방지
@@ -85,7 +84,7 @@ public static Boolean valueOf(boolean b) {
 ===  
 
 ### 단점
-1. 정적 팩터리 메서드만 있는 클래스를 만들면 생기는 가장 큰 문제는, 
+1. 정적 팩터리 메서드만 있는 클래스를 만들면 생기는 가장 큰 문제는,
 public이나 protected로 선언된 생성자가 없으므로 하위 클래스를 만들 수 없다.  
 <br>
 
