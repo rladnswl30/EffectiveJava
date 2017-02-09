@@ -16,7 +16,7 @@ String s = "stringette";
 - 생성자 대신 정적 팩터리 메서드를 이용하면 불필요한 객체 생성을 피할 수 있다.
  - 피해야 하는 예 (생성자)
  ```JAVA
- new Boolean(String)
+ Boolean(String)
  ```
  - 바람직한 예 (정적 팩터리 메서드 이용)
  ```JAVA
@@ -53,9 +53,6 @@ public class Person {
 public class Person {
   private final Date birthDate;
 
-  /**
-   * 베이비 붐 시대의 시작과 끝
-   */
    private static final Date BOOM_START;
    private static final Date BOOM_END;
 
@@ -78,7 +75,7 @@ public class Person {
 이렇게 하면 Calendar, TimeZone, Date 객체를 클래스가 초기화 될 때 한 번만 만든다.
  - 정적 초기화 블록을 통해 성능 개선, 코드 간결화
  - boomStart와 boomEnd를 지역변수 -> static final로 바꾸어 읽기 좋은 코드로 개선
- - 초기화 지연 기법을 통해 BOOM_START, BOOM_END를 isBabyBoomer 메서드 호출 시 초기화 할 수 있지만, 위 코드에서는 구현이 복잡해지고, 성능 개선이 어려워 추천하지 않는다.
+ - 초기화 지연 기법을 통해 BOOM_START, BOOM_END를 isBabyBoomer 메서드 호출 시 처음 한 번만 초기화 할 수 있지만, 위 코드에서는 구현이 복잡해지고, 성능 개선이 어려워 추천하지 않는다.
 
 ### 3. 객체 표현형 대신 기본 자료형을 사용하고, 생각지도 못한 자동 객체화(autoboxing)가 발생되지 않도록 유의하자.
 - 피해야 하는 예
