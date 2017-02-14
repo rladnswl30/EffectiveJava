@@ -54,7 +54,7 @@ try(TestObject obj = new TestObject) {
 	-	언제 호출 될진 모르겠지만 어쨋든 반환은 된다.
 	-	단 이런 경우 logging
 
--	native peer 와 연결된 객체를 다룰 때. (native method : http://roughexistence.tistory.com/81\)
+-	native peer 와 연결된 객체를 다룰 때. (native method : http://roughexistence.tistory.com/81)
 
 	-	native peer : java 객체가 native method를 통해 기능 수행을 위임하는 네이티브 객체
 
