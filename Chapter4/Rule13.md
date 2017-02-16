@@ -34,7 +34,7 @@
   - public : 어디서든 사용 가능
   ```
 
-- publoic API 설계 시 모든 멤버는 최대한 private으로 선언하되,  
+- public API 설계 시 모든 멤버는 최대한 private으로 선언하되,  
 같은 패키지 내의 다른 클래스가 반드시 사용해야 하는 멤버인 경우 package-private으로 만들자.  
 -> 의존성을 최대한 끊어내기 위해
 - package-private에서 protected로 변경하면 멤버를 사용할 수 있는 범위가 넓어지기 때문에 사용을 자제하자.
