@@ -47,7 +47,7 @@ public class MySet<E> extends AbstractSet<E> {
 }
 ```
 
-- __바깥 클래스 객체에 접근할 필요가 없는 멤버 클래스를 정의할 때, 항상 선언문 앞에 satic을 붙여 비-정적 멤버 클래스 대신 정적 멤버 클래스로 만들자__
+- __바깥 클래스 객체에 접근할 필요가 없는 멤버 클래스를 정의할 때, 항상 선언문 앞에 static을 붙여 비-정적 멤버 클래스 대신 정적 멤버 클래스로 만들자__
  - static 생략 시, 모든 객체는 내부적으로 바깥 객체에 대한 참조를 유지하여 시간과 공간 요구량이 늘어나고, 쓰레기 수집(garbage collection)이 힘들어진다.ㅊ
 - private 정적 멤버 클래스는 바깥 클래스 객체의 컴포넌트(component)를 표현하는 데에 흔히 쓰인다  
 ex) Map 구현 클래스의 Entry 객체 : Entry 객체의 메서드(getKey, getValue, setValue 등)는 맵 객체에 접근할 필요가 없다.
