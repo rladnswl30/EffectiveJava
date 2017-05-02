@@ -3,6 +3,8 @@ __enum 자료형__ 은 __형 안전 enum__ 패턴보다 거의 모든 면에서 
 그러나 __형 안전 enum__ 패턴은 계승을 통한 확장이 가능했던 반면, __enum 자료형__ 은 그렇지 않다.  
 이를 해결하기 위한 것이 바로 __enum 자료형의 인터페이스 구현__ 이다.
 
+[형 안전(typesafe) enum pattern ?](http://docs.oracle.com/javase/1.5.0/docs/guide/language/enums.html)
+
 ```JAVA
 // 인터페이스를 이용해 확장 가능하게 만든 enum 자료형
 public interface Operation {
@@ -79,7 +81,7 @@ private static <T extends Enum<T> & Operation> void test(
       }
 }
 ```
-- ExtendedOperation.class는 한정적 자료형 토큰([규칙29](/Chapter5/Rule29.md)) 구실을 한다.
+- ExtendedOperation.class는 한정적 자료형 토큰([규칙29](/Chapter5/Rule29.md) - 한정적 형인자나 한정적 와일드카드를 사용해서 표현 가능한 자료형을 제한) 구실을 한다.
 - opSet의 형인자 T는 Class 객체가 나타내는 자료형이 enum자료형인 동시에 Operation의 하위 자료형이 되도록 한다.
 
 ### 확장된 enum 자료형을 사용하는 두번째 방법

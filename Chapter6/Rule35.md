@@ -46,10 +46,10 @@ public class Sample {
 ```
 - @Test는 표식 어노테이션이라고 부른다.
 - 아무 인자도 받지 않으며, "표식"의 구실만 한다.
-- 철자가 틀리거나, Test를 메서드 선언부가 아닌 다른 곳에 붙이면 이 프로그램은 컴파일되지 않을 것이다.
+- Test 철자가 틀리거나, Test를 메서드 선언부가 아닌 다른 곳에 붙이면 이 프로그램은 컴파일되지 않을 것이다.
 - Test 어노테이션은 Sample 클래스가 동작하는 데에 직접적 영향을 미치지는 않는다.
 
-### @Test annotation은 단점이 많으므로, 다음과 같이 사용해라.
+### 특정한 예외가 발생했을 경우만 성공하는 테스트를 작성할 때는 다음과 같이 사용해라.
 ```JAVA
 import java.lang.reflect.*;
 public class RunTests {
@@ -64,6 +64,7 @@ public class RunTests {
           m.invoke(null);
           System.out.printf("Test %s failed : no exception%n", m);
         } catch (Throwable wrappedExc) {
+
           Throwable exc = wrappedExc.getCause();
           Class<? extends Exception>[] excTypes = m.getAnnotation(ExceptionTest.class).value();
           int oldPassed = passed;
@@ -73,13 +74,13 @@ public class RunTests {
               break;
             }
           }
-          if (passed == oldPassed)
-            System.out.printf("Test %s failed : %s %n", m, exc);
-        } catch (Exception exc) {
-          System.out.println("INVALID @Test : " + m);
+          if (passed == oldPassed) System.out.printf("Test %s failed : %s %n", m, exc);
+
         }
       }
     }
+
+    System.out.println("Passed: %d, Failed: %d %n", passed, tests - passed)
 
   }
 }
@@ -111,6 +112,8 @@ public static void doubleBad() {
 
 ### 요약
 - 프로그래머가 소스 파일에 정보를 추가할 수 있도록 하는 도구를 만들고 싶다면, 어떤 어노테이션 자료형이 필요한지 찾아서 알아서 만들어라.
-- @Test는 단점이 많으니, 위 어노테이션을 만들어 사용하면 좋다.
 - 어노테이션이 있으므로 더 이상 작명 패턴에 기대면 안된다.
 - 위와 같은 어노테이션들은 표준화 된 것이 아니므로, 도구를 바꾸거나 새 표준이 재정될 경우 수정해야 한다.
+
+
+* [JAVA에서 printf 시 %n 등의 사용](http://www.java2s.com/Code/Java/Development-Class/Systemoutprintfbncnsnsndn.htm)
